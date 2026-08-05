@@ -1,0 +1,3 @@
+# Require review on any change to CI/CD workflows — the highest-leverage
+# place for a supply-chain compromise to hide.
+/.github/workflows/ @RudrenduPaul

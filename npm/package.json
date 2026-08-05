@@ -1,0 +1,24 @@
+{
+  "name": "swarm-rd-orchestrator-cli",
+  "version": "0.0.1",
+  "description": "Ray-native context/memory sharing for parallel research agents, with an agent-native CLI and MCP server (Node wrapper around the Python CLI)",
+  "license": "Apache-2.0",
+  "author": "Rudrendu Paul",
+  "keywords": [
+    "ray",
+    "multi-agent",
+    "agent-orchestration",
+    "mcp",
+    "model-context-protocol",
+    "context-sharing",
+    "memory-sharing",
+    "research-agents",
+    "cli"
+  ],
+  "bin": {
+    "swarm-rd-cli": "./bin/cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
