@@ -20,6 +20,7 @@ This is a Milestone 1 prototype (2026-08-03): validate the approach on a real ta
 ## Table of Contents
 
 - [Install](#install)
+- [Features](#features)
 - [Quickstart](#quickstart)
 - [Command reference](#command-reference)
 - [Comparison](#comparison)
@@ -43,6 +44,14 @@ npm install -g swarm-rd-orchestrator-cli
 Either gives you a `swarm-rd-cli` command on your `PATH`. The npm package is a thin wrapper around the Python CLI: it execs the real binary, it does not reimplement it. Install the Python package too if you use the npm one.
 
 **Status:** not yet published to either registry. Both names are reserved and verified free (checked directly against the npm and PyPI registries). Publishing is the next step, not a completed one, see the note in [Locked decisions](#locked-decisions-2026-08-03).
+
+## Features
+
+- **Atomic append, proven, not just claimed.** A dedicated test simulates a crash mid-write and confirms the SQLite WAL layer leaves zero partial rows, not just a description of the guarantee.
+- **Structured output on every data command.** `--json` on `append`, `pull`, and `list-tasks` means an agent shelling out to this CLI never has to screen-scrape human-formatted text.
+- **An MCP server, not just a CLI.** `swarm-rd-cli mcp` exposes the same three operations as typed tools over stdio, so an agent can call this programmatically instead of spawning a subprocess.
+- **Concurrency tested with real Ray actors, not mocked.** The load-bearing test runs 3 actual Ray actors appending concurrently and reconciles the result, the same mechanism the real workload uses.
+- **Malformed input fails loudly.** A delta missing `task_id`, `agent_id`, or `content` raises `InvalidDeltaError` before touching storage. No silent drops.
 
 ## Quickstart
 
