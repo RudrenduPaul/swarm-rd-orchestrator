@@ -4,6 +4,8 @@
 
 **Ray-native context and memory sharing for parallel research agents, with an agent-native CLI and MCP server.**
 
+[![PyPI](https://img.shields.io/pypi/v/swarm-rd-orchestrator-cli.svg)](https://pypi.org/project/swarm-rd-orchestrator-cli/)
+[![npm](https://img.shields.io/npm/v/swarm-rd-orchestrator-cli.svg)](https://www.npmjs.com/package/swarm-rd-orchestrator-cli)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![Tests](https://img.shields.io/badge/tests-9%2F9%20passing-brightgreen.svg)](test_event_log.py)
@@ -43,7 +45,7 @@ npm install -g swarm-rd-orchestrator-cli
 
 Either gives you a `swarm-rd-cli` command on your `PATH`. The npm package is a thin wrapper around the Python CLI: it execs the real binary, it does not reimplement it. Install the Python package too if you use the npm one.
 
-**Status:** not yet published to either registry. Both names are reserved and verified free (checked directly against the npm and PyPI registries). Publishing is the next step, not a completed one, see the note in [Locked decisions](#locked-decisions-2026-08-03).
+**Status:** live on both registries as of 2026-08-04, version `0.0.1`. Both were verified with a real install and a real command run in a clean environment before this note was written, not just a successful upload.
 
 ## Features
 
@@ -125,7 +127,7 @@ options:
 | Cross-language | Python only | Python and Node |
 | Memory search/ranking | None (pull by `task_id` only) | BM25 keyword ranking on memory queries |
 | MCP server | Yes | Yes |
-| Published on PyPI/npm | Not yet | Yes, live |
+| Published on PyPI/npm | Yes, live | Yes, live |
 | CI | Yes | Yes |
 
 If the Ray-native distributed-compute angle doesn't end up mattering for your use case, use `swarmmesh` instead. It's live, tested against real usage, and does more.
@@ -173,7 +175,7 @@ Read the printed rubric at the end. The decision rule: fewer than 3 qualifying a
 - Malformed delta raises `InvalidDeltaError`, never silent
 - License: Apache 2.0
 - Python: 3.10 or newer, required for the `mcp` SDK
-- Publishing: not yet done. GitHub repo is live; PyPI and npm publishing are the next concrete steps, both names verified available on their respective registries
+- Publishing: live on [PyPI](https://pypi.org/project/swarm-rd-orchestrator-cli/) and [npm](https://www.npmjs.com/package/swarm-rd-orchestrator-cli) as of 2026-08-04, version `0.0.1`, both verified with a real clean-environment install
 
 ## FAQ
 

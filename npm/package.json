@@ -16,7 +16,15 @@
     "cli"
   ],
   "bin": {
-    "swarm-rd-cli": "./bin/cli.js"
+    "swarm-rd-cli": "bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RudrenduPaul/swarm-rd-orchestrator.git"
+  },
+  "homepage": "https://github.com/RudrenduPaul/swarm-rd-orchestrator#readme",
+  "bugs": {
+    "url": "https://github.com/RudrenduPaul/swarm-rd-orchestrator/issues"
   },
   "engines": {
     "node": ">=18"

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,7 @@ name = "swarm-rd-orchestrator-cli"
 version = "0.0.1"
 description = "Ray-native context/memory sharing for parallel research agents, with an agent-native CLI and MCP server (Milestone 1 spike)"
 readme = "README.md"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
 requires-python = ">=3.10"
 keywords = [
     "ray", "multi-agent", "agent-orchestration", "mcp", "model-context-protocol",
@@ -19,7 +19,6 @@ authors = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
     "Environment :: Console",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
