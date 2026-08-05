@@ -45,7 +45,7 @@ npm install -g swarm-rd-orchestrator-cli
 
 Either gives you a `swarm-rd-cli` command on your `PATH`. The npm package is a thin wrapper around the Python CLI: it execs the real binary, it does not reimplement it. Install the Python package too if you use the npm one.
 
-**Status:** live on both registries as of 2026-08-04, version `0.0.1`. Both were verified with a real install and a real command run in a clean environment before this note was written, not just a successful upload.
+**Status:** live on both registries as of 2026-08-04. PyPI is at `0.0.2` (published via GitHub Actions OIDC, no stored token); npm is at `0.0.1`. Both were verified with a real install and a real command run in a clean environment, not just a successful upload.
 
 ## Features
 
@@ -175,7 +175,7 @@ Read the printed rubric at the end. The decision rule: fewer than 3 qualifying a
 - Malformed delta raises `InvalidDeltaError`, never silent
 - License: Apache 2.0
 - Python: 3.10 or newer, required for the `mcp` SDK
-- Publishing: live on [PyPI](https://pypi.org/project/swarm-rd-orchestrator-cli/) and [npm](https://www.npmjs.com/package/swarm-rd-orchestrator-cli) as of 2026-08-04, version `0.0.1`, both verified with a real clean-environment install
+- Publishing: live on [PyPI](https://pypi.org/project/swarm-rd-orchestrator-cli/) (`0.0.2`, via GitHub Actions OIDC Trusted Publishing, no stored token) and [npm](https://www.npmjs.com/package/swarm-rd-orchestrator-cli) (`0.0.1`), both verified with a real clean-environment install
 
 ## FAQ
 
@@ -192,7 +192,7 @@ Tested on macOS. Ray itself supports Linux and macOS natively; Windows support f
 No. This project makes no LLM calls of its own. It's a coordination layer that your own agents, whatever model or framework they use, write to and read from.
 
 **Is this safe to depend on?**
-No, not yet. This is a pre-validation Milestone 1 spike at version `0.0.1`, not a stable release. The event log's core guarantees (atomic append, no partial writes) are tested in `test_event_log.py`, but the project hasn't been validated against a real multi-agent workload beyond the spike script yet.
+No, not yet. This is a pre-validation Milestone 1 spike (versions `0.0.x`), not a stable release. The event log's core guarantees (atomic append, no partial writes) are tested in `test_event_log.py`, but the project hasn't been validated against a real multi-agent workload beyond the spike script yet.
 
 **How do I use this from an agent, not just a human?**
 Either shell out to the CLI with `--json` on every command, or run `swarm-rd-cli mcp` and connect to it as an MCP server. Both give structured, parseable output.
