@@ -2,14 +2,16 @@
 
 # swarm-rd-orchestrator-cli
 
-**Ray-native context and memory sharing for parallel research agents, with an agent-native CLI and MCP server.**
-
 [![PyPI](https://img.shields.io/pypi/v/swarm-rd-orchestrator-cli.svg)](https://pypi.org/project/swarm-rd-orchestrator-cli/)
 [![npm](https://img.shields.io/npm/v/swarm-rd-orchestrator-cli.svg)](https://www.npmjs.com/package/swarm-rd-orchestrator-cli)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![Tests](https://img.shields.io/badge/tests-9%2F9%20passing-brightgreen.svg)](test_event_log.py)
 [![Status](https://img.shields.io/badge/status-pre--validation%20spike-orange.svg)](#locked-decisions-2026-08-03)
+
+[Install](#install) • [Quickstart](#quickstart) • [Command reference](#command-reference) • [Comparison](#comparison) • [FAQ](#faq)
+
+**Ray-native context and memory sharing for parallel research agents, with an agent-native CLI and MCP server.**
 
 </div>
 
@@ -18,22 +20,6 @@
 An append-only, SQLite-WAL-backed event log wrapped as a Ray actor, so parallel agents can write findings and pull each other's without a shared mutable store, plus a CLI and MCP server so both humans and other agents can drive it directly.
 
 This is a Milestone 1 prototype (2026-08-03): validate the approach on a real task before building further. See [Locked decisions](#locked-decisions-2026-08-03) below and `spike.py` for the actual validation harness.
-
-## Table of Contents
-
-- [Install](#install)
-- [Features](#features)
-- [Quickstart](#quickstart)
-- [Command reference](#command-reference)
-- [Comparison](#comparison)
-- [What is swarm-rd-orchestrator-cli, and why does it exist](#what-is-swarm-rd-orchestrator-cli-and-why-does-it-exist)
-- [Build from source](#build-from-source)
-- [Run the tests](#run-the-tests)
-- [Run the actual validation spike](#run-the-actual-validation-spike)
-- [Locked decisions (2026-08-03)](#locked-decisions-2026-08-03)
-- [FAQ](#faq)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Install
 
@@ -47,13 +33,8 @@ Either gives you a `swarm-rd-cli` command on your `PATH`. The npm package is a t
 
 **Status:** live on both registries (PyPI published via GitHub Actions OIDC, no stored token). Both were verified with a real install and a real command run in a clean environment, not just a successful upload.
 
-## Features
-
-- **Atomic append, proven, not just claimed.** A dedicated test simulates a crash mid-write and confirms the SQLite WAL layer leaves zero partial rows, not just a description of the guarantee.
-- **Structured output on every data command.** `--json` on `append`, `pull`, and `list-tasks` means an agent shelling out to this CLI never has to screen-scrape human-formatted text.
-- **An MCP server, not just a CLI.** `swarm-rd-cli mcp` exposes the same three operations as typed tools over stdio, so an agent can call this programmatically instead of spawning a subprocess.
-- **Concurrency tested with real Ray actors, not mocked.** The load-bearing test runs 3 actual Ray actors appending concurrently and reconciles the result, the same mechanism the real workload uses.
-- **Malformed input fails loudly.** A delta missing `task_id`, `agent_id`, or `content` raises `InvalidDeltaError` before touching storage. No silent drops.
+> [!WARNING]
+> This is a pre-validation Milestone 1 spike (`0.0.x`), not yet a stable release. Tested on macOS only; Windows support is unverified since Ray's own Windows support is more limited than Linux/macOS upstream.
 
 ## Quickstart
 
@@ -70,6 +51,14 @@ swarm-rd-cli mcp                    # run as an MCP server over stdio
 ```
 
 Every data-returning command supports `--json` for agent and script consumption, no screen-scraping required. The `mcp` subcommand exposes `append_delta`, `pull_deltas`, and `list_tasks` as typed MCP tools over stdio, so an agent can call this programmatically instead of shelling out.
+
+## Features
+
+- **Atomic append, proven, not just claimed.** A dedicated test simulates a crash mid-write and confirms the SQLite WAL layer leaves zero partial rows, not just a description of the guarantee.
+- **Structured output on every data command.** `--json` on `append`, `pull`, and `list-tasks` means an agent shelling out to this CLI never has to screen-scrape human-formatted text.
+- **An MCP server, not just a CLI.** `swarm-rd-cli mcp` exposes the same three operations as typed tools over stdio, so an agent can call this programmatically instead of spawning a subprocess.
+- **Concurrency tested with real Ray actors, not mocked.** The load-bearing test runs 3 actual Ray actors appending concurrently and reconciles the result, the same mechanism the real workload uses.
+- **Malformed input fails loudly.** A delta missing `task_id`, `agent_id`, or `content` raises `InvalidDeltaError` before touching storage. No silent drops.
 
 ## Command reference
 
