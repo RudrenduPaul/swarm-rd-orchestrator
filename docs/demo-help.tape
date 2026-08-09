@@ -1,7 +1,7 @@
 Output "docs/demo-help.gif"
 Set FontSize 16
 Set Width 760
-Set Height 400
+Set Height 260
 Set Theme "Dracula"
 Set WindowBar Colorful
 Set WindowBarSize 36

@@ -1,7 +1,7 @@
 Output "docs/demo-listtasks.gif"
 Set FontSize 16
 Set Width 760
-Set Height 500
+Set Height 260
 Set Theme "Dracula"
 Set WindowBar Colorful
 Set WindowBarSize 36
