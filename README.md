@@ -73,6 +73,8 @@ Every data-returning command supports `--json` for agent and script consumption,
 
 ## Command reference
 
+![Demo: swarm-rd-cli --help output](docs/demo-help.gif)
+
 Generated from the CLI's own `--help` output:
 
 ```
@@ -115,6 +117,8 @@ options:
   -h, --help     show this help message and exit
   --since SINCE  cursor to pull after
 ```
+
+![Demo: appending deltas from two more agents, then list-tasks and a --json pull](docs/demo-listtasks.gif)
 
 ## Comparison
 
