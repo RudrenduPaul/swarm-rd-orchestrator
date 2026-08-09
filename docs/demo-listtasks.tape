@@ -10,6 +10,14 @@ Type "export PS1='$ '"
 Enter
 Sleep 300ms
 
+Type "export PATH=/tmp/swarm-rd-orchestrator-demo/.venv/bin:$PATH"
+Enter
+Sleep 300ms
+
+Type "clear"
+Enter
+Sleep 300ms
+
 Type "swarm-rd-cli --db demo2.db append task-2 agent-c 'spike validated against Ray actor object store' --kind result"
 Enter
 Sleep 800ms
