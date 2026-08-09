@@ -45,7 +45,7 @@ npm install -g swarm-rd-orchestrator-cli
 
 Either gives you a `swarm-rd-cli` command on your `PATH`. The npm package is a thin wrapper around the Python CLI: it execs the real binary, it does not reimplement it. Install the Python package too if you use the npm one.
 
-**Status:** live on both registries as of 2026-08-04. PyPI is at `0.0.2` (published via GitHub Actions OIDC, no stored token); npm is at `0.0.1`. Both were verified with a real install and a real command run in a clean environment, not just a successful upload.
+**Status:** live on both registries (PyPI published via GitHub Actions OIDC, no stored token). Both were verified with a real install and a real command run in a clean environment, not just a successful upload.
 
 ## Features
 
@@ -175,7 +175,7 @@ Read the printed rubric at the end. The decision rule: fewer than 3 qualifying a
 - Malformed delta raises `InvalidDeltaError`, never silent
 - License: Apache 2.0
 - Python: 3.10 or newer, required for the `mcp` SDK
-- Publishing: live on [PyPI](https://pypi.org/project/swarm-rd-orchestrator-cli/) (`0.0.2`, via GitHub Actions OIDC Trusted Publishing, no stored token) and [npm](https://www.npmjs.com/package/swarm-rd-orchestrator-cli) (`0.0.1`), both verified with a real clean-environment install
+- Publishing: live on [PyPI](https://pypi.org/project/swarm-rd-orchestrator-cli/) (via GitHub Actions OIDC Trusted Publishing, no stored token) and [npm](https://www.npmjs.com/package/swarm-rd-orchestrator-cli), both verified with a real clean-environment install
 
 ## FAQ
 
