@@ -13,11 +13,11 @@
 
 </div>
 
+![Demo: appending findings from two agents and pulling them back through swarm-rd-cli](docs/demo.gif)
+
 An append-only, SQLite-WAL-backed event log wrapped as a Ray actor, so parallel agents can write findings and pull each other's without a shared mutable store, plus a CLI and MCP server so both humans and other agents can drive it directly.
 
 This is a Milestone 1 prototype (2026-08-03): validate the approach on a real task before building further. See [Locked decisions](#locked-decisions-2026-08-03) below and `spike.py` for the actual validation harness.
-
-![Demo: appending findings from two agents and pulling them back through swarm-rd-cli](docs/demo.gif)
 
 ## Table of Contents
 
