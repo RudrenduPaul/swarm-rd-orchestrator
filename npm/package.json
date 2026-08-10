@@ -4,6 +4,9 @@
   "description": "Ray-native context/memory sharing for parallel research agents, with an agent-native CLI and MCP server (Node wrapper around the Python CLI)",
   "license": "Apache-2.0",
   "author": "Rudrendu Paul",
+  "contributors": [
+    "Sourav Nandy"
+  ],
   "keywords": [
     "ray",
     "multi-agent",

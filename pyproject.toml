@@ -15,6 +15,7 @@ keywords = [
 ]
 authors = [
     { name = "Rudrendu Paul" },
+    { name = "Sourav Nandy" },
 ]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
