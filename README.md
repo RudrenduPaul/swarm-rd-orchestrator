@@ -1,3 +1,5 @@
+<!-- mcp-name: io.github.RudrenduPaul/swarm-rd-orchestrator -->
+
 <div align="center">
 
 # swarm-rd-orchestrator-cli
@@ -9,7 +11,7 @@
 [![Tests](https://img.shields.io/badge/tests-9%2F9%20passing-brightgreen.svg)](test_event_log.py)
 [![Status](https://img.shields.io/badge/status-pre--validation%20spike-orange.svg)](#locked-decisions-2026-08-03)
 
-[Install](#install) • [Quickstart](#quickstart) • [Command reference](#command-reference) • [Comparison](#comparison) • [FAQ](#faq)
+[Install](#install) • [Quickstart](#quickstart) • [Command reference](#command-reference) • [MCP Server](#mcp-server) • [Comparison](#comparison) • [FAQ](#faq)
 
 **Ray-native context and memory sharing for parallel research agents, with an agent-native CLI and MCP server.**
 
@@ -108,6 +110,39 @@ options:
 ```
 
 ![Demo: appending deltas from two more agents, then list-tasks and a --json pull](docs/demo-listtasks.gif)
+
+## MCP Server
+
+`swarm-rd-orchestrator-cli` ships a Model Context Protocol (MCP) server, so an agent can call the event log directly as typed tools over stdio instead of shelling out to the CLI and parsing text.
+
+```bash
+pip install "swarm-rd-orchestrator-cli[mcp]"
+```
+
+Run it with:
+
+```bash
+swarm-rd-cli mcp
+```
+
+Add it to Claude Desktop (or any other MCP client) by pointing it at that command in your config:
+
+```json
+{
+  "mcpServers": {
+    "swarm-rd-orchestrator": {
+      "command": "swarm-rd-cli",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+Three tools are exposed:
+
+- **`append_delta(task_id, agent_id, content, kind="note")`** - append a finding/result/tool-output to the event log for a task. Example: `append_delta(task_id="task-1", agent_id="agent-a", content="found a race condition in the retry loop", kind="result")`.
+- **`pull_deltas(task_id, since_cursor=0)`** - pull every delta for a task with id greater than `since_cursor`, oldest first. Example: `pull_deltas(task_id="task-1")` returns the full history; `pull_deltas(task_id="task-1", since_cursor=2)` returns only deltas written after cursor 2.
+- **`list_tasks()`** - list every `task_id` currently in the event log with its delta count. Example: `list_tasks()` returns `[{"task_id": "task-1", "delta_count": 2}]`.
 
 ## Comparison
 
