@@ -15,6 +15,7 @@ Usage:
 
 from __future__ import annotations
 
+import os
 import sys
 import tempfile
 import time
@@ -84,7 +85,8 @@ def run_spike():
 
     ray.init(num_cpus=4, include_dashboard=False, logging_level="error")
 
-    db_path = tempfile.mktemp(suffix=".db", prefix="swarm-spike-")
+    db_fd, db_path = tempfile.mkstemp(suffix=".db", prefix="swarm-spike-")
+    os.close(db_fd)
     print(f"Event log: {db_path}\n")
 
     log_actor = EventLogActor.remote(db_path)
