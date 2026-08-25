@@ -26,7 +26,7 @@ jobs:
         run: |
           set -e
           pattern='CEO review|office-?hours|eng-?review|devex review|CSO review|CSO threat-?model|/oss-[0-9]+-[a-z-]+|/plan-eng-review|/review finding|Reviewer Concern|viability score|fundrais|investor-?outreach|Show HN draft|hype-?seed'
-          hits=$(grep -rinE "$pattern" --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__ . || true)
+          hits=$(grep -rinE "$pattern" --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__ --exclude=no-internal-docs.yml . || true)
           if [ -n "$hits" ]; then
             echo "Found references to internal review processes or strategy terms:"
             echo "$hits"
