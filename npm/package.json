@@ -1,6 +1,6 @@
 {
   "name": "swarm-rd-orchestrator-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ray-native context/memory sharing for parallel research agents, with an agent-native CLI and MCP server (Node wrapper around the Python CLI)",
   "license": "Apache-2.0",
   "author": "Rudrendu Paul",
