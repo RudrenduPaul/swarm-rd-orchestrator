@@ -1320,7 +1320,7 @@ wheels = [
 
 [[package]]
 name = "swarm-rd-orchestrator-cli"
-version = "0.0.3"
+version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "ray" },
@@ -1336,7 +1336,7 @@ mcp = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mcp", marker = "extra == 'mcp'", specifier = ">=1.0" },
+    { name = "mcp", marker = "extra == 'mcp'", specifier = ">=2.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0" },
     { name = "ray", specifier = ">=2.56" },
 ]

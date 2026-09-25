@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "swarm-rd-orchestrator-cli"
-version = "0.0.3"
+version = "0.1.0"
 description = "Ray-native context/memory sharing for parallel research agents, with an agent-native CLI and MCP server (Milestone 1 spike)"
 readme = "README.md"
 license = "Apache-2.0"
@@ -36,7 +36,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=9.0"]
-mcp = ["mcp>=1.0"]
+mcp = ["mcp>=2.0"]
 
 [project.scripts]
 swarm-rd-cli = "cli:main"

@@ -23,7 +23,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RudrenduPaul/swarm-rd-orchestrator.git"
+    "url": "git+https://github.com/RudrenduPaul/swarm-rd-orchestrator.git",
+    "directory": "npm"
   },
   "homepage": "https://github.com/RudrenduPaul/swarm-rd-orchestrator#readme",
   "bugs": {
